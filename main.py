@@ -1,4 +1,3 @@
-# task = input("Enter your task: ")
 
 # fs = open("tasks.txt", '+a')
 # fs.write(task + '\n')
@@ -6,7 +5,21 @@
 # fs.close()
 
 def app():
-    # show_menu()
+    while True:
+        show_menu()
+        action = input('Enter an option to continue: ')
+        match action:
+            case 1:
+                pass
+            case 2:
+                pass
+            case 3:
+                pass
+            case 4:
+                pass
+            case 5:
+                pass
+    
     show_tasks()
 
 # Subroutines
@@ -19,15 +32,20 @@ def get_tasks():
     
     return data
 
+def write_tasks(tasks):
+    fs = open("tasks.txt", "w")
+    fs.write(tasks.join('\n'))
+
 # To read all tasks
 def show_tasks():
     print(get_tasks())
 
 # To add a task
 def add_task(task):
-    # 1. Grab data
+    # 1. Grab data and append...
     tasksAdded = get_tasks() + task
-    return tasksAdded
+    # ...to file database
+    write_tasks(tasksAdded)
 
 # To modify a task
 # Returns the new tasks array
